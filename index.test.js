@@ -32,12 +32,17 @@ describe('[Exercise 2] trimPropertiesMutation', () => {
     expect(input).toEqual(differentObj) //VALUES should equal
     expect(input).not.toBe(differentObj) //REFERENCE in memory should NOT be the same
     expect(input).toBe(input)
-
   })
 })
 
 describe('[Exercise 3] findLargestInteger', () => {
-  test.todo('[5] returns the largest number in an array of objects { integer: 2 }')
+  test('[5] returns the largest number in an array of objects { integer: 3 }', () =>{
+    const input = [{ integer: 1 }, { integer: 3 }, { integer: 2 }]
+    const expected = 3
+    const actual = utils.findLargestInteger(input)
+    expect(actual).toEqual(expected)
+  })
+
 })
 
 describe('[Exercise 4] Counter', () => {
