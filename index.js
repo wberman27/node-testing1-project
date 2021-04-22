@@ -11,7 +11,6 @@ function trimProperties(obj) {
   Object.keys(obj).map(key =>{
     newObj[key] = obj[key].trim()
   })
-  console.log(newObj)
   return newObj
 }
 
@@ -24,7 +23,11 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
-  // ✨ implement
+  Object.keys(obj).map(key =>{
+    obj[key] = obj[key].trim()
+  })
+  console.log(obj)
+  return obj
 }
 
 /**
