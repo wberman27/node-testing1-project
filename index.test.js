@@ -8,7 +8,7 @@ describe('[Exercise 1] trimProperties', () => {
     const actual = utils.trimProperties(input)
     expect(actual).toEqual(expected)
   })
-  test.todo('[2] returns a copy, leaving the original object intact')
+  test('[2] returns a copy, leaving the original object intact')
 })
 
 describe('[Exercise 2] trimPropertiesMutation', () => {
