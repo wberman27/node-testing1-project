@@ -26,7 +26,6 @@ function trimPropertiesMutation(obj) {
   Object.keys(obj).map(key =>{
     obj[key] = obj[key].trim()
   })
-  console.log(obj)
   return obj
 }
 
