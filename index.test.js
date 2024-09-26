@@ -1,6 +1,8 @@
 const utils = require('./index')
 
+
 describe('[Exercise 1] trimProperties', () => {
+
   test('[1] returns an object with the properties trimmed', () => {
     // EXAMPLE
     const input = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
@@ -8,25 +10,55 @@ describe('[Exercise 1] trimProperties', () => {
     const actual = utils.trimProperties(input)
     expect(actual).toEqual(expected)
   })
-  test.todo('[2] returns a copy, leaving the original object intact')
+  test('[2] returns a copy, leaving the original object intact' , () => {
+    const input = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
+    const newObj = utils.trimProperties(input)
+    expect(newObj).not.toEqual(input)
+    expect(input).toEqual(input)
+  })
 })
 
 describe('[Exercise 2] trimPropertiesMutation', () => {
-  test.todo('[3] returns an object with the properties trimmed')
-  test.todo('[4] the object returned is the exact same one we passed in')
+  test('[3] returns an object with the properties trimmed', ()=>{
+    const input = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
+    const expected = { foo: 'foo', bar: 'bar', baz: 'baz' }
+    const actual = utils.trimPropertiesMutation(input)
+    expect(actual).toEqual(expected)
+  })
+  test('[4] the object returned is the exact same one we passed in', ()=>{
+    const input = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
+    const differentObj = utils.trimProperties(input)
+    utils.trimPropertiesMutation(input) //will have same values as differentObj but not the exact same
+    expect(input).toEqual(differentObj) //VALUES should equal
+    expect(input).not.toBe(differentObj) //REFERENCE in memory should NOT be the same
+    expect(input).toBe(input)
+  })
 })
 
 describe('[Exercise 3] findLargestInteger', () => {
-  test.todo('[5] returns the largest number in an array of objects { integer: 2 }')
+  test('[5] returns the largest number in an array of objects { integer: 3 }', () =>{
+    const input = [{ integer: 1 }, { integer: 3 }, { integer: 2 }]
+    const expected = 3
+    const actual = utils.findLargestInteger(input)
+    expect(actual).toEqual(expected)
+  })
+
 })
 
 describe('[Exercise 4] Counter', () => {
   let counter
   beforeEach(() => {
-    counter = new utils.Counter(3) // each test must start with a fresh couter
+    counter = new utils.Counter(3) // each test must start with a fresh counter
   })
-  test.todo('[6] the FIRST CALL of counter.countDown returns the initial count')
-  test.todo('[7] the SECOND CALL of counter.countDown returns the initial count minus one')
+  test('[6] the FIRST CALL of counter.countDown returns the initial count', () =>{
+    counter.countDown()
+    expect(counter).toEqual(3)
+  })
+  test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', ()=>{
+    counter.countDown()
+    counter.countDown()
+    expect(counter).toEqual(2)
+  })
   test.todo('[8] the count eventually reaches zero but does not go below zero')
 })
 

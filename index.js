@@ -7,7 +7,11 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
-  // ✨ implement
+  let newObj = {}
+  Object.keys(obj).map(key =>{
+    newObj[key] = obj[key].trim()
+  })
+  return newObj
 }
 
 /**
@@ -19,7 +23,10 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
-  // ✨ implement
+  Object.keys(obj).map(key =>{
+    obj[key] = obj[key].trim()
+  })
+  return obj
 }
 
 /**
@@ -31,7 +38,13 @@ function trimPropertiesMutation(obj) {
  * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
  */
 function findLargestInteger(integers) {
-  // ✨ implement
+  let largestInteger = 0
+  integers.map(obj =>{
+    if(Object.values(obj)[0] > largestInteger){
+      largestInteger = Object.values(obj)[0]
+    }
+  })
+  return largestInteger
 }
 
 class Counter {
@@ -40,9 +53,9 @@ class Counter {
    * @param {number} initialNumber - the initial state of the count
    */
   constructor(initialNumber) {
-    // ✨ initialize whatever properties are needed
+      this.initialNumber = 3,
+      this.newNumber = initialNumber
   }
-
   /**
    * [Exercise 4B] Counter.prototype.countDown counts down to zero
    * @returns {number} - the next count, does not go below zero
@@ -56,7 +69,12 @@ class Counter {
    * counter.countDown() // returns 0
    */
   countDown() {
-    // ✨ implement
+    if(this.newNumber === this.initialNumber){
+      return this.initialNumber
+    }else{
+      this.newNumber -= 1
+      return this.newNumber
+    }
   }
 }
 
